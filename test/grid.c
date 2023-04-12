@@ -4,26 +4,51 @@ void printGrid(char line[], int lineLength, int size)
 {
 		int i;
 		int j;
-		int grid[size][size];
+		int x = 1;
+		int y = 1;
 
 		for (i = 0; i < lineLength; i++)
 		{
 			for (j = 0; j < lineLength; j++)
 			{
-				if (i == 0 || i == lineLength - 1 || j == 0 || j == lineLength - 1)
+				if (i == 0 || i == lineLength - 1)
 				{
-					line[j] = '#';
+						if (i == 0 && j % 4 != 0)
+						{
+							printf("%d", x);
+							x++;
+						}
+						else
+						{
+							line[j] = '#';
+							printf("%c", line[j]);
+						}
+				}
+				else if (j == 0 || j == lineLength - 1)
+				{
+					if (j == 0 && i % 4 != 0)
+					{
+						printf("%d", y);
+						y++;
+					}
+					else
+					{
+						line[j] = '#';
+						printf("%c", line[j]);
+					}
 				}
 				else if (i % 4 == 0 || j % 4 == 0)
 				{
 					line[j] = '#';
+					printf("%c", line[j]);
 				}
 				else
 				{
 					line[j] = ' ';
+					printf("%c", line[j]);
 				}
 			}
-			printf("%s\n", line);
+			printf("\n");
 		}
 }
 
