@@ -269,7 +269,9 @@ void printUi(int difficultyOption)
 
 	//Calculate line size based on user input
 	lineLength = (size + (3 * size)) + 1;
-	char line[lineLength];
+
+	//Set line array (required for Visual Studio Compiler)
+	char line[13];
 
 	while (completed == false)
     {
